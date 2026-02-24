@@ -167,14 +167,15 @@ body {
     display: grid;
     grid-template-areas: 
         "content profile"
-        "body body";
+        "body profile";
     grid-template-columns: 1fr auto;
     gap: var(--space-xl) var(--space-xl);
-    align-items: center;
+    align-items: center; /* Vertically centers profile */
     text-align: left;
 
     .hero-content {
         grid-area: content;
+        align-self: start; /* Keep content at the top */
         
         h1 {
             font-size: var(--font-size-4xl);
@@ -234,6 +235,7 @@ body {
     
     .hero-body {
         grid-area: body;
+        align-self: start; /* Keep body at the top */
         
         p {
             color: var(--text-muted);
@@ -265,6 +267,7 @@ body {
         .hero-content,
         .hero-body {
             width: 100%;
+            align-self: auto; /* Reset on mobile */
         }
         
         .hero-profile {
