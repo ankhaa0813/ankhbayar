@@ -164,25 +164,20 @@ body {
 // ============================================
 .hero-card {
     @extend .glass-card;
-    display: grid;
-    // Desktop layout: Header and Body on the left, Profile spans both on the right
-    grid-template-columns: 1fr 240px; 
-    grid-template-areas: 
-        "header photo"
-        "body   photo";
+    display: flex;
     align-items: center;
-    gap: 0 var(--space-xl); // 0 vertical gap, large horizontal gap for desktop
+    gap: var(--space-xl);
     text-align: left;
-
-    // 1. HEADER SECTION (Title & Subtitle)
-    .hero-header {
-        grid-area: header;
+    
+    // Updated from .hero-content to match your new .md blocks
+    .hero-header, .hero-body {
+        flex: 1;
         
         h1 {
             font-size: var(--font-size-4xl);
             font-weight: 700;
-            line-height: 1.1; // Tightened line height
-            margin-bottom: 4px; // Reduced gap to subtitle
+            line-height: 1.2;
+            margin-bottom: var(--space-sm);
             color: var(--text-dark);
             
             @media (max-width: 768px) {
@@ -192,15 +187,31 @@ body {
         
         .subtitle {
             font-size: var(--font-size-xl);
-            color: var(--text-muted); // Restored original color
-            font-weight: 400;         // Restored original weight
-            margin-bottom: 0; // Removed bottom margin to pull body up
+            color: var(--accent-blue);
+            font-weight: 500;
+            margin-bottom: var(--space-md);
+        }
+        
+        p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
+            font-size: var(--font-size-base);
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            
+            @media (max-width: 768px) {
+                flex-direction: column;
+            }
         }
     }
-
-    // 2. PROFILE SECTION (The Squircle Photo)
+    
     .hero-profile {
-        grid-area: photo;
+        flex: 0 0 240px;
         width: 240px;
         height: 240px;
         position: relative;
@@ -228,50 +239,26 @@ body {
         }
     }
 
-    // 3. BODY SECTION (Bio & Buttons)
-    .hero-body {
-        grid-area: body;
-        
-        p {
-            color: var(--text-muted);
-            line-height: 1.6; // Slightly tighter for better grouping
-            margin-top: 12px; // Reduced gap from subtitle
-            margin-bottom: var(--space-md);
-            font-size: var(--font-size-base);
-        }
-        
-        .hero-cta {
-            display: flex;
-            gap: var(--space-sm);
-            flex-wrap: wrap;
-        }
-    }
-    
-    // 4. MOBILE LAYOUT FIX
+    // MOBILE FIX: Tighten margins and reduce gaps
     @media (max-width: 768px) {
-        display: flex;
         flex-direction: column; 
         text-align: center;
-        gap: 8px; // Very tight gap for mobile
-        padding: var(--space-lg);
+        gap: 8px; // Reduced from space-xl
         
-        .hero-header .subtitle {
-            margin-bottom: 8px;
+        .hero-header {
+            h1 { margin-bottom: 4px; }
+            .subtitle { margin-bottom: 0; }
         }
 
         .hero-profile {
-            margin: 12px auto; // Space around the photo
+            margin: 10px auto; // Tightened vertical margin
             width: 200px;
             height: 200px;
-            order: 0; // Keeping photo between subtitle and bio based on HTML order
+            flex: 0 0 200px;
         }
 
         .hero-body {
-            p { margin-top: 4px; }
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-            }
+            p { margin-top: 8px; margin-bottom: 12px; }
         }
     }
 }
