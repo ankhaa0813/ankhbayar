@@ -1,6 +1,7 @@
 ---
 layout: default
-title: CV | Ankhbayar Delgerchuluun
+title: CV
+permalink: /cv/
 ---
 
 <!-- Page Header -->
