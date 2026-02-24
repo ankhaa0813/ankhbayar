@@ -2,7 +2,7 @@
 title: Ankhbayar Delgerchuluun
 description: Development Economist & Data Scientist specializing in environmental economics and geospatial analysis
 url: https://ankhbayar.github.io
-baseurl: ""
+baseurl: "/ankhbayar"
 
 # Timezone and language
 timezone: UTC
