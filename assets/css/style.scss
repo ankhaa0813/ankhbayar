@@ -681,7 +681,32 @@ body {
 .nav-item i {
     color: var(--accent-green-alt);
 }
+@media (max-width: 768px) {
+    /* 1. Reduce the overall container padding to give more room */
+    .cv-container {
+        padding-left: 10px; 
+        padding-right: 10px;
+    }
 
+    /* 2. Move the vertical timeline line closer to the edge */
+    .timeline::before {
+        left: 15px !important;
+    }
+
+    /* 3. Move the blue circle to the left */
+    .timeline-dot {
+        left: 6px !important; // Shifts the blue point left
+        width: 16px;         // Slightly smaller for mobile
+        height: 16px;
+    }
+
+    /* 4. Expand the text card to use the saved space */
+    .timeline-content {
+        margin-left: 30px !important; // Reduces the "empty" space on the left
+        padding: 15px !important;     // Reduces inner card padding
+        width: calc(100% - 40px);     // Forces it to take up more width
+    }
+}
 // ============================================
 // 12. SKILL PILL CLOUD
 // ============================================
