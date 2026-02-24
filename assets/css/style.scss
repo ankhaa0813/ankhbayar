@@ -250,6 +250,7 @@ body {
             display: flex;
             flex-direction: column; // Stacks 1, 2, 3 vertically
             text-align: center;
+            gap: 12px; //
             grid-template-columns: 1fr;
             
             .hero-profile {
