@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Archive | GitHub Repositories
+title: Archive
+permalink: /archive/
 ---
 
 <section class="page-header">
