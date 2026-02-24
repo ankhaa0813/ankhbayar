@@ -247,26 +247,17 @@ body {
     }
     
     @media (max-width: 768px) {
-        .hero-card {
-            flex-direction: column; // Stack vertically
+            display: flex;
+            flex-direction: column; // Stacks 1, 2, 3 vertically
             text-align: center;
-            display: flex; // Ensure flex is active
+            grid-template-columns: 1fr;
+            
+            .hero-profile {
+                margin: var(--space-md) auto;
+                width: 200px;
+                height: 200px;
+            }
         }
-    
-        .hero-content {
-            display: contents; // CRITICAL: This "unwraps" the content so we can reorder children
-        }
-    
-        /* Assign the specific order to EVERY element inside the card */
-        h1 { order: 1; }
-        .subtitle { order: 2; }
-        .hero-profile { 
-            order: 3; // The Photo
-            margin: var(--space-lg) auto; 
-        }
-        p { order: 4; }
-        .hero-cta { order: 5; }
-    }
 }
 
 // ============================================
