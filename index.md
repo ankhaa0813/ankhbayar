@@ -42,14 +42,15 @@ title: Ankhbayar | Development Economist & Data Scientist
                 <i class="fas fa-satellite"></i> Geospatial Analysis
             </span>
             <span class="meta-badge">
-                <i class="fas fa-code"></i> R & STATA
+                <i class="fas fa-microscope"></i> Remote sensing
             </span>
             <span class="meta-badge">
                 <i class="fas fa-cube"></i> Instrumental Variable
             </span>
             <span class="meta-badge">
-                <i class="fas fa-microscope"></i> Remote sensing
+                <i class="fas fa-code"></i> R & STATA
             </span>
+
         </div>
         <p class="project-description">
             Master’s Thesis: Causal analysis examining the relationship between environmental degradation and social stability in West Africa. Employed an instrumental variable strategy with large-scale geospatial data to identify the impact of air pollution on conflict dynamics. Supervised by Prof. Dr. Krisztina Kis-Katos and Dr. Kerstin Unfried.
