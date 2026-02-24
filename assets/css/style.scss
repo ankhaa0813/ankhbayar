@@ -247,21 +247,25 @@ body {
     }
     
     @media (max-width: 768px) {
-        flex-direction: column; // Stack vertically
-        text-align: center;
+        .hero-card {
+            flex-direction: column; // Stack vertically
+            text-align: center;
+            display: flex; // Ensure flex is active
+        }
+    
         .hero-content {
-            // Target the individual pieces of text
-            .subtitle { order: 1; }
-            
-            // We move the image here conceptually using the container order
-            p { order: 3; }
-            .hero-cta { order: 4; }
+            display: contents; // CRITICAL: This "unwraps" the content so we can reorder children
         }
-
-        .hero-profile {
-            order: 2; // This places the photo exactly after the subtitle
-            margin: var(--space-md) auto; // Adds some breathing room
+    
+        /* Assign the specific order to EVERY element inside the card */
+        h1 { order: 1; }
+        .subtitle { order: 2; }
+        .hero-profile { 
+            order: 3; // The Photo
+            margin: var(--space-lg) auto; 
         }
+        p { order: 4; }
+        .hero-cta { order: 5; }
     }
 }
 
