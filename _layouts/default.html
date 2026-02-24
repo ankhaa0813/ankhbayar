@@ -22,15 +22,15 @@
 
     <!-- Floating Glass Navigation Pill -->
     <nav class="glass-nav-pill">
-        <a href="/" class="nav-item" aria-label="Home">
+        <a href="{{ '/' | relative_url }}" class="nav-item">
             <i class="fas fa-home"></i>
             <span class="nav-label">Home</span>
         </a>
-        <a href="/archive" class="nav-item" aria-label="Archive">
+        <a href="{{ '/archive/' | relative_url }}" class="nav-item">
             <i class="fas fa-folder"></i>
             <span class="nav-label">Archive</span>
         </a>
-        <a href="/cv" class="nav-item" aria-label="CV">
+        <a href="{{ '/cv/' | relative_url }}" class="nav-item">
             <i class="fas fa-file-alt"></i>
             <span class="nav-label">CV</span>
         </a>
