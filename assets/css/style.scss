@@ -192,8 +192,8 @@ body {
         
         .subtitle {
             font-size: var(--font-size-xl);
-            color: var(--accent-blue);
-            font-weight: 500;
+            color: var(--text-muted); // Restored original color
+            font-weight: 400;         // Restored original weight
             margin-bottom: 0; // Removed bottom margin to pull body up
         }
     }
