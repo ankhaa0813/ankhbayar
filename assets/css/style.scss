@@ -169,7 +169,7 @@ body {
         "content profile"
         "body profile";
     grid-template-columns: 1fr auto;
-    gap: var(--space-md) var(--space-xl);
+    gap: 0 var(--space-xl);
     align-items: center; /* Vertically centers profile */
     text-align: left;
 
@@ -193,7 +193,7 @@ body {
             font-size: var(--font-size-xl);
             color: var(--accent-blue);
             font-weight: 500;
-            margin-bottom: var(--space-md);
+            margin-bottom: 8px;
         }
     }
     
@@ -261,7 +261,7 @@ body {
             "profile"
             "body";
         grid-template-columns: 1fr;
-        gap: var(--space-xl);
+        gap: var(--space-md);
         text-align: center;
         
         .hero-content,
