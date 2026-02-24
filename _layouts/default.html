@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: "Ankhbayar | Development Economist & Data Scientist" }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Portfolio of Ankhbayar Delgerchuluun - Development Economist & Data Scientist">
+    <meta name="theme-color" content="#e0f2fe">
+</head>
+
+<body>
+    <!-- Fixed gradient background -->
+    <div class="bg-gradient"></div>
+    
+    <!-- Main content container -->
+    <main class="container">
+        {{ content }}
+    </main>
+
+    <!-- Floating Glass Navigation Pill -->
+    <nav class="glass-nav-pill">
+        <a href="/" class="nav-item" aria-label="Home">
+            <i class="fas fa-home"></i>
+            <span class="nav-label">Home</span>
+        </a>
+        <a href="/archive" class="nav-item" aria-label="Archive">
+            <i class="fas fa-folder"></i>
+            <span class="nav-label">Archive</span>
+        </a>
+        <a href="/cv" class="nav-item" aria-label="CV">
+            <i class="fas fa-file-alt"></i>
+            <span class="nav-label">CV</span>
+        </a>
+        <a href="https://www.linkedin.com/in/ankhbayar-delgerchuluun-b94272197/" class="nav-item" aria-label="Contact">
+            <i class="fab fa-linkedin"></i>
+            <span class="nav-label">Linkedin</span>
+        </a>
+    </nav>
+</body>
+</html>

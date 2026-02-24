@@ -18,6 +18,23 @@
 # Output files from R CMD check
 /*.Rcheck/
 
+# Jekyll & Build
+.DS_Store
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+*.gem
+vendor/
+.bundle/
+node_modules/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.env
+.local
+_site/
 # RStudio files
 .Rproj.user/
 

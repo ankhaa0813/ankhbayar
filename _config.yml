@@ -1,0 +1,43 @@
+# Jekyll Configuration
+title: Ankhbayar Delgerchuluun
+description: Development Economist & Data Scientist specializing in environmental economics and geospatial analysis
+url: https://ankhbayar.github.io
+baseurl: ""
+
+# Timezone and language
+timezone: UTC
+lang: en
+
+# Build settings
+markdown: kramdown
+theme: null
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - .gitignore
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+
+# SCSS/CSS
+sass:
+  style: compressed
+  load_paths:
+    - _sass
+
+# Pagination (if needed)
+paginate: 10
+paginate_path: "/page:num/"
+
+# Output settings
+show_drafts: false

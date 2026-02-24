@@ -1,0 +1,778 @@
+---
+---
+// ============================================
+// GLASSMORPHISM 2.0 - PORTFOLIO STYLESHEET
+// ============================================
+
+// ============================================
+// 1. CSS VARIABLES & COLOR PALETTE
+// ============================================
+:root {
+    // Glass layer properties
+    --glass-light: rgba(255, 255, 255, 0.4);   // was 0.15
+    --glass-medium: rgba(255, 255, 255, 0.6);  // was 0.2
+    --glass-heavy: rgba(255, 255, 255, 0.75);  // was 0.25
+    --border-glass: rgba(255, 255, 255, 0.4);  // was 0.3
+    
+    // Soft Gradient background tones
+    --grad-peach: #fdf2f8;
+    --grad-blue: #e0f2fe;
+    --grad-green: #f0f4f4; // Replaced pink hue with a light sage tint
+    
+    // Text colors - DARKENED FOR CONTRAST
+    --text-dark: #111827;
+    --text-muted: #4b5563;
+    --text-light: #f3f4f6;
+    
+    // Accent colors
+    --accent-blue: #0ea5e9;    // Primary Action (Buttons/Links)
+    --accent-green-main: #99b5c0; // Secondary Accent (Replaced Pink)
+    --accent-green-success: #10b981;
+    
+    // Spacing scale
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 2.5rem;
+    --space-2xl: 3rem;
+    
+    // Typography
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    
+    // Border radius
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 32px;
+    
+    // Transitions
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+// ============================================
+// 2. GLOBAL STYLES
+// ============================================
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-dark);
+    background-color: #f0f2f5;
+    overflow-x: hidden;
+    line-height: 1.7;
+    font-size: var(--font-size-base);
+    font-weight: 400;
+}
+
+// ============================================
+// 3. BACKGROUND IMAGE & GRADIENT (Pixel Style)
+// ============================================
+.bg-gradient {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image: url('../../pixel.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+    /* 2px blur is the 'Sweet Spot' - keeps the color but softens the shapes */
+    filter: blur(5px) brightness(0.9);
+    transform: scale(1.05); /* Prevents white edges from the blur */
+}
+
+/* This adds a professional 'Studio Lighting' feel */
+.bg-gradient::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.1) 100%);
+}
+
+/* Add this overlay to unify the colors with your glass cards */
+.bg-gradient::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(224, 242, 254, 0.1) 100%
+    );
+}
+// ============================================
+// 4. CONTAINER & LAYOUT
+// ============================================
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    z-index: 1;
+    
+    @media (max-width: 768px) {
+        padding: var(--space-md);
+    }
+}
+
+// ============================================
+// 5. GLASS CARD COMPONENT
+// ============================================
+.glass-card {
+    background: var(--glass-medium);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin: var(--space-lg) auto;
+    transition: all var(--transition-base);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    
+    &:hover {
+        background: var(--glass-heavy);
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+        transform: translateY(-4px);
+    }
+    
+    @media (max-width: 768px) {
+        padding: var(--space-lg);
+        margin: var(--space-md) auto;
+        border-radius: var(--radius-md);
+    }
+}
+
+// ============================================
+// 6. HERO CARD (Home Page)
+// ============================================
+.hero-card {
+    @extend .glass-card;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    text-align: left;
+    
+    .hero-content {
+        flex: 1;
+        
+        h1 {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-sm);
+            color: var(--text-dark);
+            
+            @media (max-width: 768px) {
+                font-size: var(--font-size-3xl);
+            }
+        }
+        
+        .subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--accent-blue);
+            font-weight: 500;
+            margin-bottom: var(--space-md);
+        }
+        
+        p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
+            font-size: var(--font-size-base);
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            
+            @media (max-width: 768px) {
+                flex-direction: column;
+            }
+        }
+    }
+    
+    .hero-profile {
+        flex: 0 0 240px; // Slightly larger for better impact
+        width: 240px;
+        height: 240px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            // The "Squircle" Look: High border radius matches your project icons
+            border-radius: 40px; 
+            object-fit: cover; // Ensures face isn't distorted
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2); // Subtle glass edge
+            transition: transform var(--transition-base);
+        }
+
+        // Decorative background glow to make the profile pop
+        &::after {
+            content: '';
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            flex: 0 0 180px;
+            width: 180px;
+            height: 180px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+        
+        .hero-content {
+            width: 100%;
+        }
+    }
+}
+
+// ============================================
+// 7. FEATURED PROJECT CARDS
+// ============================================
+.featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    margin: var(--space-2xl) auto;
+    max-width: 900px;
+    
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+}
+
+.featured-card {
+    @extend .glass-card;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    
+    .project-image {
+        width: 100%;
+        height: 320px; // Increased from 220px to give more vertical room
+        margin-bottom: var(--space-md);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+        background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 80%);
+
+        img {
+            // Change these to increase the actual icon size
+            width: 100%;       // Use full width of the container
+            height: 100%;      // Use full height of the container
+            max-width: 95%;    // Allows it to be large but stay slightly away from edges
+            max-height: 90%;   
+            object-fit: contain; // Ensures the whole icon is visible without clipping
+            transition: transform var(--transition-base), filter var(--transition-base);
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.12));
+        }
+
+        @media (max-width: 768px) {
+            height: 250px; // Adjusted for mobile so it doesn't take over the screen
+        }
+    }
+
+    // Enhanced hover effect for larger icons
+    .featured-card:hover .project-image img {
+        transform: translateY(-12px) scale(1.08); // More pronounced lift
+        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
+    }
+    
+    .project-title {
+        font-size: var(--font-size-2xl);
+        font-weight: 600;
+        margin-bottom: var(--space-sm);
+        color: var(--text-dark);
+    }
+    
+    .project-description {
+        font-size: var(--font-size-sm);
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: var(--space-md);
+        flex-grow: 1;
+    }
+    
+    .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-sm);
+        font-size: var(--font-size-xs);
+        color: var(--text-muted);
+        margin-bottom: var(--space-md);
+        
+        .meta-badge {
+            background: var(--glass-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+        }
+    }
+    
+    .cta-button {
+        align-self: flex-start;
+    }
+}
+
+// ============================================
+// 8. BUTTONS
+// ============================================
+.cta-button, button, a.button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--accent-blue);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    
+    &:hover {
+        background: darken($color: #0ea5e9, $amount: 10%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(14, 165, 233, 0.4);
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+    
+    &.secondary {
+        background: var(--glass-heavy);
+        color: var(--text-dark);
+        border: 1px solid var(--border-glass);
+        box-shadow: none;
+        
+        &:hover {
+            background: var(--glass-light);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+    }
+    
+    &.accent-pink {
+        background: var(--accent-green-main);
+        box-shadow: 0 4px 15px rgba(153, 181, 192, 0.3);
+        
+        &:hover {
+            background: darken($color: #99b5c0, $amount: 10%);
+            box-shadow: 0 6px 25px rgba(153, 181, 192, 0.4);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+// ============================================
+// 9. FLOATING NAVIGATION PILL
+// ============================================
+.glass-nav-pill {
+    position: fixed;
+    /* Keeps your desktop position: bottom right */
+    bottom: 2rem; 
+    right: 2rem;
+    
+    display: flex;
+    gap: 0.5rem;
+    background: var(--glass-medium);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--border-glass);
+    border-radius: 999px;
+    padding: 0.75rem;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    /* Responsive adjustment only */
+    @media (max-width: 768px) {
+        /* Move to bottom center */
+        bottom: 1.5rem;
+        right: 50%;
+        transform: translateX(50%); 
+        
+        /* Keep the width tight to the icons */
+        width: max-content;
+        padding: 0.5rem 1rem;
+    }
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    color: var(--text-main);
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    i {
+        font-size: 1.1rem;
+        color: var(--accent-primary);
+    }
+
+    .nav-label {
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+    }
+
+    /* Keep labels visible or hide them based on your preference for mobile */
+    @media (max-width: 480px) {
+        padding: 0.75rem;
+        .nav-label {
+            display: none; /* Recommended for very small screens to prevent crowding */
+        }
+    }
+}
+// ============================================
+// 10. ARCHIVE GRID
+// ============================================
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-lg);
+    margin: var(--space-2xl) auto;
+    max-width: 1200px;
+    
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.archive-card {
+    @extend .glass-card;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-lg);
+    min-height: 350px; 
+    
+    // THE NEW TITLE DESIGN: Glass Background instead of Icon
+    .repo-name {
+        background: rgba(255, 255, 255, 0.3); // Inner glass layer
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: var(--space-sm) var(--space-md);
+        border-radius: var(--radius-md);
+        
+        font-size: var(--font-size-lg);
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: var(--space-md);
+        text-align: center;
+        display: block;
+    }
+    
+    .repo-description {
+        font-size: var(--font-size-sm);
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: var(--space-lg);
+        flex-grow: 1; // Pushes button to bottom
+        padding: 0 var(--space-xs);
+    }
+    
+    .repo-stats {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-lg);
+        font-size: var(--font-size-xs);
+        color: var(--text-muted);
+        margin-bottom: var(--space-md);
+        padding-top: var(--space-md);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            
+            i {
+                color: var(--accent-pink); // Your #99b5c0 green
+            }
+        }
+    }
+
+    // Github Button exactly matching Featured Work
+    .repo-cta {
+        @extend .cta-button;
+        @extend .accent-pink;
+        width: 100%;
+        justify-content: center;
+        font-size: var(--font-size-sm);
+        padding: var(--space-sm);
+    }
+}
+
+// ============================================
+// 11. TIMELINE (CV PAGE)
+// ============================================
+/* CV Specific Layout */
+.timeline-card {
+    background: var(--glass-light); /* Use the variable instead of 0.03 */
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-glass);
+    transition: all 0.3s ease;
+}
+
+/* The Vertical Line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-blue), var(--accent-pink));
+    opacity: 0.3;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 3rem;
+}
+
+/* The "Pixel" Dot */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 13px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: var(--bg-card);
+    border: 3px solid var(--accent-blue);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.timeline-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-glass);
+    transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateX(10px);
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.timeline-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--text-main);
+}
+
+.timeline-subtitle {
+    font-weight: 600;
+    color: #5a7d8a; /* A darker shade of your green for maximum readability */
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+/* Skill Cloud Polish */
+.skills-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.skill-pill {
+    background: var(--glass-light);
+    border: 1px solid var(--border-glass);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: 0.3s;
+}
+
+.skill-pill:hover {
+    background: var(--accent-green-alt);
+    color: white;
+    border-color: var(--accent-green-alt);
+}
+
+.nav-item i {
+    color: var(--accent-green-alt);
+}
+
+// ============================================
+// 12. SKILL PILL CLOUD
+// ============================================
+.skills-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+    margin: var(--space-2xl) 0;
+    
+    @media (max-width: 768px) {
+        justify-content: flex-start;
+    }
+}
+
+.skill-pill {
+    background: var(--glass-medium);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--border-glass);
+    color: var(--text-dark);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 999px;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    transition: all var(--transition-base);
+    cursor: default;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    
+    &:hover {
+        background: var(--glass-heavy);
+        color: var(--accent-blue);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(14, 165, 233, 0.15);
+    }
+    
+    i {
+        margin-right: var(--space-xs);
+        color: var(--accent-blue);
+    }
+}
+
+// ============================================
+// 13. TYPOGRAPHY
+// ============================================
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700; /* Bolder headers help readability on glass */
+    line-height: 1.3;
+    margin-bottom: var(--space-md);
+    color: #111827;
+    
+    /* This creates a tiny 'glow' that separates letters from the blur */
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8); 
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-base); }
+
+p {
+    margin-bottom: var(--space-md);
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    
+    &:hover {
+        color: var(--accent-pink);
+        text-decoration: underline;
+    }
+}
+
+// ============================================
+// 14. UTILITIES
+// ============================================
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); }
+.text-accent { color: var(--accent-blue); }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+
+.mt { &-sm { margin-top: var(--space-sm); } &-md { margin-top: var(--space-md); } &-lg { margin-top: var(--space-lg); } }
+.mb { &-sm { margin-bottom: var(--space-sm); } &-md { margin-bottom: var(--space-md); } &-lg { margin-bottom: var(--space-lg); } }
+
+.section-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    color: var(--text-dark);
+}
+
+.page-header {
+    @extend .glass-card;
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    
+    h1 {
+        margin-bottom: var(--space-sm);
+    }
+    
+    p {
+        font-size: var(--font-size-lg);
+        color: var(--text-muted);
+    }
+}
