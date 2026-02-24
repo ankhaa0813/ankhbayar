@@ -682,29 +682,41 @@ body {
     color: var(--accent-green-alt);
 }
 @media (max-width: 768px) {
-    /* 1. Reduce the overall container padding to give more room */
-    .cv-container {
-        padding-left: 8px; 
-        padding-right: 8px;
-    }
-
-    /* 2. Move the vertical timeline line closer to the edge */
-    .timeline::before {
-        left: 10px !important;
-    }
-
-    /* 3. Move the blue circle to the left */
-    .timeline-item::before {
-        left: 2px !important; // Shifts the blue point left
-        width: 12px;         // Slightly smaller for mobile
-        height: 12px;
-    }
-
-    /* 4. Expand the text card to use the saved space */
     .timeline-card {
-        margin-left: 15px !important; // Reduces the "empty" space on the left
-        padding: 15px !important;     // Reduces inner card padding
-        width: calc(100% - 40px);     // Forces it to take up more width
+        border-radius: 1rem;
+        padding: 1rem;
+    }
+    
+    /* The Vertical Line */
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 10px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--accent-blue), var(--accent-pink));
+        opacity: 0.3;
+    }
+    
+    .timeline-item {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 3rem;
+    }
+    
+    /* The "Pixel" Dot */
+    .timeline-item::before {
+        left: 5px;
+
+    }
+    
+    .timeline-card {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        border: 1px solid var(--border-glass);
+        transition: all 0.3s ease;
     }
 }
 // ============================================
