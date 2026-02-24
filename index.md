@@ -8,6 +8,11 @@ title: Ankhbayar | Development Economist & Data Scientist
     <div class="hero-content">
         <h1>Ankhbayar Delgerchuluun</h1>
         <p class="subtitle">Development Economist & Data Scientist</p>
+    </div>
+    <div class="hero-profile">
+        <img src="profile.jpeg" alt="Profile Portrait">
+    </div>
+    <div class="hero-body">
         <p>
             Research Manager at the Center for Evaluation and Development (C4ED), Mannheim, Germany. Focused on rigorous impact evaluation across developing countries, integrating RCT and quasi-experimental methods with large-scale primary data systems and quality assurance. Applies advanced geospatial analytics to measure and model environmental and socioeconomic dynamics. Committed to strengthening evidence-based decision-making through applied econometrics, data science, and analytical frameworks.
         </p>
@@ -20,9 +25,7 @@ title: Ankhbayar | Development Economist & Data Scientist
             </a>
         </div>
     </div>
-    <div class="hero-profile">
-        <img src="profile.jpeg" alt="Profile Portrait">
-    </div>
+
 </section>
 
 <!-- Featured Projects Section -->
