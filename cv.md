@@ -108,8 +108,6 @@ Inclusion.
         <span class="skill-pill"><i class="fas fa-cube"></i> SQL (Intermediate)</span>
         <span class="skill-pill"><i class="fas fa-file-contract"></i> LaTeX (Advanced)</span>
         <span class="skill-pill"><i class="fas fa-map"></i> QGIS (Advanced)</span>
-        <span class="skill-pill"><i class="fas fa-chart-bar"></i> Data Analysis</span>
-        <span class="skill-pill"><i class="fas fa-microscope"></i> Causal Inference & RCTs</span>
         <span class="skill-pill"><i class="fas fa-chart-pie"></i> Data Visualization</span>
         <span class="skill-pill"><i class="fas fa-chart-bar"></i> Shiny Apps</span>
         <span class="skill-pill"><i class="fas fa-poll"></i> ODK & KOBO Toolbox</span>
@@ -219,7 +217,7 @@ Inclusion.
     <h3>Download Full CV</h3>
     <p>Get the complete details of my professional background and qualifications</p>
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="Ankhbayar_CV_Nov_25.pdf" class="cta-button">
+       <a href="{{ '/Ankhbayar_CV_Nov_25.pdf' | relative_url }}" class="cta-button">
             <i class="fas fa-file-pdf"></i> Download PDF
         </a>
         <a href="mailto:ankhbayr0813@gmail.com" class="cta-button secondary">
