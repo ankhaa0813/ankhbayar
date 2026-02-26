@@ -217,7 +217,7 @@ Inclusion.
     <h3>Download Full CV</h3>
     <p>Get the complete details of my professional background and qualifications</p>
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-      <a href="https://raw.githubusercontent.com/ankhaa0813/ankhbayar/main/Ankhbayar_CV_Nov_25.pdf" class="cta-button">
+      <a href="/ankhbayar/Ankhbayar_CV_Nov_25.pdf" class="cta-button">
             <i class="fas fa-file-pdf"></i> Download PDF
         </a>
         <a href="mailto:ankhbayr0813@gmail.com" class="cta-button secondary">
