@@ -146,7 +146,7 @@ Inclusion.
                     <div class="timeline-title">National University of Mongolia</div>
                     <div class="timeline-subtitle">B.S. in Economics</div>
                     <p style="margin-bottom: 0.5rem;">
-                        <strong>Thesis:</strong> "Up in the Air: The Effects of Air Pollution on Conflict in West Africa"
+                        <strong>Thesis:</strong> "The impact of corruption on institutions in transitional economies."
                     </p>
                                         <p>
                         <strong>Supervisor:</strong> M.S. Battulga Sergelen
